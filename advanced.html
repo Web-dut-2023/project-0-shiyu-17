@@ -7,6 +7,15 @@
         body {
             text-align: center;
         }
+
+        .header {
+            text-align: right;
+            padding: 10px;
+        }
+        
+        .header a {
+            margin-left: 10px;
+        }
         
         .search-container {
             margin-top: 100px;
@@ -33,6 +42,9 @@
 </head>
 
 <body>
+    <div class="header">
+        <a href="index.html">Back to Google Search</a>
+    </div>
     <h1>Google Advanced Search</h1>
         <div class="search-container">
             <form action="https://google.com/search" method="GET">
@@ -47,7 +59,5 @@
                 <input type="submit" value="Advanced Search" class="search-button">
             </form>
         </div>
-    <a href="index.html">Back to Google Search</a>
 </body>
-
 </html>
