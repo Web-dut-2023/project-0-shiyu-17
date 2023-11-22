@@ -35,3 +35,14 @@ def get_entry(title):
         return f.read().decode("utf-8")
     except FileNotFoundError:
         return None
+
+
+def get_capitalized_title(title):
+    """
+    Retrieves the correct capitalisation of a title.
+    If title doesn't exist - returns None.
+    """
+    for saved_title in list_entries():
+        if title.lower() == saved_title.lower():
+            return saved_title
+    return None

@@ -1,0 +1,11 @@
+{% extends "encyclopedia/layout.html" %} 
+
+{% block title %} wiki/{{ entry.title}} 
+
+{% endblock %} 
+{% block body %}
+<form class="title-form" >
+  </form>
+  
+<div>{{ entry.html|safe }}</div>
+{% endblock %}
