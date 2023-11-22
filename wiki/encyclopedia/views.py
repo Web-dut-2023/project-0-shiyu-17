@@ -75,7 +75,7 @@ def new(request):
             })
 
         util.save_entry(name, body)
-        return redirect('title', name)
+        return redirect('title', name) # Redirect to the newly created entry
 
     return render(request, "encyclopedia/new.html")
 
