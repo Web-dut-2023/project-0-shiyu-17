@@ -1,11 +1,21 @@
-{% extends "encyclopedia/layout.html" %} 
+{% extends "encyclopedia/layout.html" %}
 
-{% block title %} wiki/{{ entry.title}} 
+{% block title %}
+wiki/{{ entry.title }}
+{% endblock %}
 
-{% endblock %} 
 {% block body %}
-<form class="title-form" >
-  </form>
-  
+<style>
+  .blue-icon {
+    color: blue;
+  }
+</style>
+
+<form class="title-form" action="{% url 'edit' entry.title %}" id="edit-form">
+  <button class="edit-btn btn btn-light" form="edit-form" type="submit" title="Edit {{ entry.title }}">
+    <i class="fas fa-edit blue-icon"></i> Edit
+  </button>
+</form>
+
 <div>{{ entry.html|safe }}</div>
 {% endblock %}
