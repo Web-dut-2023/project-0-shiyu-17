@@ -1,0 +1,20 @@
+{% extends "auctions/layout.html" %}
+{% block body %}
+{% load static %}
+
+
+        <h1>filter</h1>
+
+        {% for result in cat_result %}
+            {% if result.active == 1 %}
+        
+            <a  href="{% url 'listingpage' pk=result.pk %}">
+            
+                <h2>{{ result.name }}</h2>
+            </a>
+            
+            {% endif %}
+        {% endfor %}
+      
+       
+{% endblock %}

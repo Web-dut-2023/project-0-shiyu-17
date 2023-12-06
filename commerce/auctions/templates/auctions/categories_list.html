@@ -1,0 +1,14 @@
+{% extends "auctions/layout.html" %}
+{% block body %}
+{% load static %}
+
+
+        <h1>Categories</h1>
+        
+        {%for key, cat in cat_dict.items %}
+        <a  href="{% url 'catfilter' cat=key %}">
+            <h2>{{cat}}</h2>
+        </a>
+        {% endfor %}
+     
+{% endblock %}

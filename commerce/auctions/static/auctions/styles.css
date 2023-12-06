@@ -1,3 +1,61 @@
 body {
     padding: 10px;
+    font-family: 'Ultra'; 
+    font-style: light-Italic; 
+    font-weight: 50; 
+    font-size: 15px;
 }
+ 
+  footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color:white;
+    color: white;
+    text-align: center;
+  }
+  .center,h1 {
+    margin: auto;
+    width: 50%;
+    padding: 20px;
+  }
+.center-inside,h1 {
+    text-align:center;
+    padding:5px;
+    margin:0 auto;
+}
+
+.right-inside {
+  text-align:right;
+  padding:5px;
+  margin:0 auto;
+}
+
+.center-form-create {
+    text-align:center;
+    padding:10px;
+}
+
+.left-inside, .row {
+  text-align: center;
+  padding: 5px;
+  margin: 0 auto;
+  border: 3px solid #4CD4CB; 
+}
+
+.row:hover {
+  background-color:  #4CD4CB;
+}
+
+a:link {
+  text-decoration: none;
+  color: black;
+}
+
+a:visited {
+  text-decoration: none;
+  color: black;
+}
+
+

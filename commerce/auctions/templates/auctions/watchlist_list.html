@@ -1,0 +1,31 @@
+{% extends "auctions/layout.html" %}
+{% block body %}
+{% load static %}
+
+{% if user.is_authenticated %}
+        <h1>WatchList</h1>
+        
+<ul>
+    {% for article in object_list %}
+        {% if user.pk == article.user %}
+        <a  href="{% url 'listingpage' pk=article.listing_id %}">
+            <h3>{{ article.product_title }}</h3>
+        </a>  
+            {% endif %}
+{% empty %}
+    <li>No articles yet.</li>
+    
+{% endfor %}
+</ul>
+
+{% else %}
+    <div class="alert alert-danger" role="alert">
+        Not signed in.
+    </div>
+{% endif %}
+        
+    
+</ul>
+    </div>
+</div>
+{% endblock %}

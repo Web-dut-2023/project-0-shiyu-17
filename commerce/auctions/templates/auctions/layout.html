@@ -3,23 +3,58 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>{% block title %}Auctions{% endblock %}</title>
+        <title>{% block title %}HG Auctions{% endblock %}</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link href="{% static 'auctions/styles.css' %}" rel="stylesheet">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ultra">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pacifico">
+        
     </head>
     <body>
-        <h1>Auctions</h1>
-        <div>
-            {% if user.is_authenticated %}
-                Signed in as <strong>{{ user.username }}</strong>.
-            {% else %}
-                Not signed in.
-            {% endif %}
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#4CD4CB;">
+            <img src="{% static 'auctions/HG-logo.png' %}" width="100" height="100" alt="">
+            <a class="navbar-brand" href="#" style="font-family: 'Ultra', serif;font-weight: 400; font-size: 48px;">Auctions </a>
+            
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+        
+              
+        <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+            
+                <ul class="navbar-nav mr-auto" style="font-family: 'Ultra'; font-style: light-Italic; font-weight: 100; font-size: 20px;">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'index' %}">Active Listing <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'closed' %}">Closed Listing <span class="sr-only">(current)</span></a>
+                </li>
+                </ul>
+        
         </div>
-        <ul class="nav">
+        
+        <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+            
+            <ul class="navbar-nav mr-auto" style="font-family: 'Ultra'; font-style: light-Italic; font-weight: 50; font-size: 5px;">
+            {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a href="{% url 'newlisting' %}" class="btn btn-secondary active" role="button" aria-pressed="true">New Listing</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'watch-list' %}" class="btn btn-secondary active" role="button" aria-pressed="true">Watchlist</a>
+                </li>
+            {% endif %}
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'index' %}">Active Listings</a>
+                <a href="{% url 'categories' %}" class="btn btn-secondary active" role="button" aria-pressed="true">Categories</a>
             </li>
+            </ul>
+    
+        </div>
+
+        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+           
+            <ul class="navbar-nav ml-auto" id="right-links" style="font-family: 'Ultra'; font-style: light-italic; font-weight: 50;">
             {% if user.is_authenticated %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
@@ -32,9 +67,29 @@
                     <a class="nav-link" href="{% url 'register' %}">Register</a>
                 </li>
             {% endif %}
-        </ul>
-        <hr>
+            </ul>
+        </div>
+        </nav>
+        
         {% block body %}
+        
         {% endblock %}
+        <footer class="footer">
+            <div class="container" style="font-family: 'Ultra'; font-style: light-italic; font-weight: 50;">
+                <div>
+                    {% if user.is_authenticated %}
+                        <div class="alert alert-success" role="alert">
+                        Signed in as <strong>{{ user.username }}</strong>.
+                        </div>
+                    {% else %}
+                    <div class="alert alert-danger" role="alert">
+                        Not signed in.
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+          </footer>
     </body>
+    
+    
 </html>

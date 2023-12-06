@@ -1,0 +1,10 @@
+{% extends 'auctions/layout.html' %}
+
+{% block content %}
+<h2>创建新的拍卖列表</h2>
+<form method="post" action="{% url 'create_listing' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">创建拍卖列表</button>
+</form>
+{% endblock %}
